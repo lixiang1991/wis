@@ -1,19 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-"""
-@author: 李翔、黄炎
-@time: 2018-7-25
-文件名: config_manager.py
-主要用途:
-    从服务器中相对当前用户home目录路径位置读取配置文件config.ini的内容
-    首先，从服务器相对路径找到配置文件config.ini
-    然后，解析配置文件，根据section和option值获取配置文件内容
-使用方法：
-    from common import config_manager
-    host = config_manager.get_config_values('mysql', 'host')
-"""
-
 import os
 import sys
 import traceback
