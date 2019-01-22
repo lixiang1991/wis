@@ -1,0 +1,146 @@
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>问题分析演示</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="jumbotron mt-1">
+        <h1 class="jumbotron-heading text-xs-center"><a href="{% static 'img/que_type.png' %}">问题分析演示</a></h1>
+        <p class="lead text-xs-center">
+
+        </p>
+
+        <hr class="my-2">
+
+        <div class="row">
+            <div class="col-xs-12 ">
+                <ul class="list-group chat-log js-chat-log">
+                </ul>
+
+                <div class="input-group input-group-lg mt-1">
+                    <input type="text" class="form-control js-text" placeholder="向我提问吧..."/>
+                    <span class="input-group-btn">
+                <button class="btn btn-primary js-say">提问</button>
+              </span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+      var canSubmit=true;
+      var chatterbotUrl = '{% url "keywords:keywords" %}';
+      var csrftoken = Cookies.get('csrftoken');
+      console.log(chatterbotUrl)
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+      var $chatlog = $('.js-chat-log');
+      var $input = $('.js-text');
+      var $sayButton = $('.js-say');
+
+      function createRow(text,putin) {
+        text=text.replace('keywords:','')
+        var $row=null;
+        if(putin==0){
+
+          $row = $('<div class="col-xs-12 mt5" style="text-align:right;"><span class="btn btn-success chat-span" >'+text+'</span></div>');
+        }else{
+          $row = $('<div class="col-xs-12 mt5"><span class="btn btn-primary chat-span" >'+text+'</span></div>');
+        }
+
+        $chatlog.append($row);
+      }
+
+      function submitInput() {
+        if(!canSubmit||$input.val()==''){
+            return;
+        }
+        canSubmit=false;
+        $sayButton.attr('disabled',"true")
+        var inputData = {
+          'text': 'keywords:'+$input.val()
+        }
+
+        // Display the user's input on the web page
+        createRow(inputData.text,0);
+
+        var $submit = $.ajax({
+          type: 'POST',
+          url: chatterbotUrl,
+          data: JSON.stringify(inputData),
+          contentType: 'application/json'
+        });
+
+        $submit.done(function(statement) {
+            if(statement.extra_data.new_sentence){
+              createRow(statement.extra_data.new_sentence,1);
+            }
+            if(statement.text){
+              createRow('恢复：'+statement.text,1);
+            }
+            createRow(statement.extra_data.pos_str,1);
+            createRow(statement.extra_data.adpos_str,1);
+            createRow(statement.extra_data.que_type_str,1);
+            createRow(statement.extra_data.core_str,1);
+            createRow(statement.extra_data.zhu_str,1);
+            createRow(statement.extra_data.key_str,1);
+            // Clear the input field
+            $input.val('');
+
+            // Scroll to the bottom of the chat interface
+            $chatlog[0].scrollTop = $chatlog[0].scrollHeight;
+            $sayButton.removeAttr("disabled");//将按钮可用
+            $sayButton.text('提交');
+            canSubmit=true;
+        });
+
+        $submit.fail(function() {
+          // TODO: Handle errors
+          canSubmit=true;
+          $sayButton.text('提交');
+          $sayButton.removeAttr("disabled");//将按钮可用
+        });
+      }
+
+      $sayButton.click(function() {
+        $sayButton.text('处理中..');
+        $sayButton.attr({"disabled":"disabled"});
+        submitInput();
+      });
+
+      $input.keydown(function(event) {
+        // Submit the input when the enter button is pressed
+        if (event.keyCode == 13) {
+          submitInput();
+        }
+      });
+
+</script>
+</body>
+</html>

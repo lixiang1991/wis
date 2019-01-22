@@ -1,0 +1,120 @@
+[
+  {
+    "value": "#",
+    "text": "表示“与其相关”",
+    "example": [
+      "连冠——#compete|比赛",
+      "连冠——#win|获胜",
+      "跑鞋——#clothing|衣物",
+      "跑鞋——#foot|脚"
+    ]
+  },
+  {
+    "value": "%",
+    "text": "表示“是其部分”",
+    "example": [
+      "皮层——%AnimalHuman|动物",
+      "司令部——%army|军队",
+      "丝瓜——%vegetable|蔬菜"
+    ]
+  },
+  {
+    "value": "$",
+    "text": "表示“可以被该‘V’处置”",
+    "example": [
+      "丝瓜——$eat|吃",
+      "塑像——$carve|雕刻"
+    ]
+  },
+  {
+    "value": "*",
+    "text": "表示“会‘V’或主要用于‘V’”,即施事或工具",
+    "example": [
+      "司令部——*order|命令",
+      "诉讼人——*accuse|控告"
+    ]
+  },
+  {
+    "value": "+",
+    "text": "对V类,它表示它所标记的角色是一种隐性的",
+    "example": [
+      "诊室——+diagnose|诊察",
+      "诊室——+cure|医治"
+    ]
+  },
+  {
+    "value": "&",
+    "text": "表示指向",
+    "example": [
+      "振幅——&shiver|颤动",
+      "匹——&livestock|牲畜",
+      "脾气——&AnimalHuman|动物"
+    ]
+  },
+  {
+    "value": "@",
+    "text": "表示可以做“V”的空间或时间",
+    "example": [
+      "板凳——@sit|坐蹲",
+      "办公楼——@engage|从事",
+      "办公桌——@put|放置",
+      "讲坛——@teach|教"
+    ]
+  },
+  {
+    "value": "?",
+    "text": "表示可以是“N”的材料",
+    "example": [
+      "酱——?food|食品",
+      "锦缎——?clothing|衣物",
+      "可卡因——?addictive|嗜好物"
+    ]
+  },
+  {
+    "value": "{}",
+    "text": "(1)对于V类,置于[]中的是该类V所有的“必备角色”。",
+    "example": [
+      "可是——{emphasis|强调}",
+      "况且——{supplement|递进}",
+      "临——{time|时间}"
+    ]
+  },
+  {
+    "value": "()",
+    "text": "置于其中的应该是一个词表记",
+    "example": [
+      "临沂——(China|中国)",
+      "路透社——(UK|英国)"
+    ]
+  },
+  {
+    "value": "^",
+    "text": "表示不存在,或没有,或不能",
+    "example": [
+      "泡影——^succeed|成功",
+      "企鹅——^fly|飞",
+      "始料不及——^$predict|预料"
+    ]
+  },
+  {
+    "value": "~",
+    "text": "表示多半是,多半有,很可能的",
+    "example": [
+      ""
+    ]
+  },
+  {
+    "value": "!",
+    "text": "表示某一属性为一种敏感的属性",
+    "example": [
+      ""
+    ]
+  },
+  {
+    "value": "[]",
+    "text": "标识概念的共性属性",
+    "example": [
+      ""
+    ]
+  }
+]

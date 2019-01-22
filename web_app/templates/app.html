@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文档定密演示</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="my-jumbotron mt-1 text-center">
+        <h1 class="jumbotron-heading text-xs-center">文档定密演示</h1>
+        <p class="lead text-xs-center">
+        </p>
+        <hr class="my-2">
+        <ul class="nav nav-tabs ">
+            <li class="nav-item">
+                <a data-toggle="tab" href="#rule_tab" class="nav-link active">定密规则</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#doc_tab" class="nav-link">文档鉴定</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active show" id="rule_tab">
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="d-flex w-100 justify-content-between">
+
+                            <div id="rule_buttons" class="rule_buttons mt5">
+                                <span>规则属性：</span>
+                            </div>
+                            <div class="rule_buttons mt5">
+                                <button onclick="add_rule_line()" class="btn btn-primary">新增</button>
+                            </div>
+                        </div>
+                        <div class=" mt5">
+                            <ul class="rule_lines list-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div  id="doc_tab" class="tab-pane fade in">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="doc_content">输入文档内容</label>
+                        <textarea class="form-control" id="doc_content" ></textarea>
+                        <button id="test_btn" onclick="set_test_doc()" class="btn btn-primary">填测试数据</button>
+                        <button id="submit_doc_btn" onclick="submit_doc()" class="btn btn-primary">鉴定</button>
+                        <label class="custom-control custom-checkbox">
+                            <input id="need_clear_btn" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">鉴定时清空记录</span>
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <label for="level_result">鉴定结果</label>
+                        <div  id="level_result" class="list-group">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script>
+      var csrftoken = Cookies.get('csrftoken');
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* Alternate the background color of the output rows */
+.list-group-item:nth-child(even) {
+    background-color: #bdf1ac;
+}
+
+.my-jumbotron{
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+
+.mt5{
+    margin-top:5px;
+}
+.ml5{
+    margin-left:5px;
+}
+.rule_buttons{
+    padding: .5rem 1.25rem;
+}
+input{
+    height:28px;
+    width:84px;
+}
+select{
+    height:28px;
+}
+textarea{
+    height:400px;
+}
+mark{
+    color:#dc3545;
+}
+.color-blue{
+    color: #fff;
+    background-color: #007bff;
+}
+.color-outline-blue{
+    color: #007bff;
+    background-image: none;
+    border-color: #007bff;
+}
+.color-purple{
+    color: #fff;
+    background-color: #6f42c1;
+}
+.color-outline-purple{
+    color: #6f42c1;
+    background-image: none;
+    border-color: #6f42c1;
+}
+.color-pink{
+    color: #fff;
+    background-color: #e83e8c;
+}
+.color-outline-pink{
+    color: #e83e8c;
+    background-image: none;
+    border-color: #e83e8c;
+}
+.color-red{
+    color: #fff;
+    background-color: #dc3545;
+}
+.color-outline-red{
+    color: #dc3545;
+    background-image: none;
+    border-color: #dc3545;
+}
+.color-orange{
+    color: #212529;
+    background-color: #fd7e14;
+}
+.color-outline-orange{
+    color: #fd7e14;
+    background-color: none;
+    border-color: #fd7e14;
+}
+.color-yellow{
+    color: #212529;
+    background-color: #ffc107;
+}
+.color-outline-yellow{
+    color: #ffc107;
+    background-color: none;
+    border-color: #ffc107;
+}
+.color-green{
+    color: #fff;
+    background-color: #28a745;
+}
+.color-outline-green{
+    color: #28a745;
+    background-color: none;
+    border-color: #28a745;
+}
+.color-teal{
+    color: #fff;
+    background-color: #20c997;
+}
+.color-outline-teal{
+    color: #20c997;
+    background-color: none;
+    border-color: #20c997;
+}
+.color-cyan{
+    color: #fff;
+    background-color: #17a2b8;
+}
+.color-outline-cyan{
+    color: #17a2b8;
+    background-color: none;
+    border-color: #17a2b8;
+}

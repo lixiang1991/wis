@@ -1,0 +1,138 @@
+{
+  "en": [
+    {
+      "text": "名词",
+      "value": "N"
+    },
+    {
+      "text": "动词",
+      "value": "V"
+    },
+    {
+      "text": "形容词",
+      "value": "ADJ"
+    },
+    {
+      "text": "副词",
+      "value": "ADV"
+    },
+    {
+      "text": "介词",
+      "value": "PREP"
+    },
+    {
+      "text": "代词",
+      "value": "PRON"
+    },
+    {
+      "text": "助词",
+      "value": "AUX"
+    },
+    {
+      "text": "量词",
+      "value": "CLAS"
+    },
+    {
+      "text": "连词",
+      "value": "CONJ"
+    },
+    {
+      "text": "并列连词",
+      "value": "COOR"
+    },
+    {
+      "text": "拟声词",
+      "value": "ECHO"
+    },
+    {
+      "text": "俚语",
+      "value": "EXPR"
+    },
+    {
+      "text": "数词",
+      "value": "NUM"
+    },
+    {
+      "text": "词组",
+      "value": "PP"
+    },
+    {
+      "text": "符号",
+      "value": "PUNC"
+    },
+    {
+      "text": "后缀",
+      "value": "PREFIX"
+    },
+    {
+      "text": "前缀",
+      "value": "SUFFIX"
+    }
+  ],
+  "cn": [
+    {
+      "text": "名词",
+      "value": "N"
+    },
+    {
+      "text": "动词",
+      "value": "V"
+    },
+    {
+      "text": "形容词",
+      "value": "ADJ"
+    },
+    {
+      "text": "副词",
+      "value": "ADV"
+    },
+    {
+      "text": "连词",
+      "value": "CONJ"
+    },
+    {
+      "text": "量词",
+      "value": "CLAS"
+    },
+    {
+      "text": "介词",
+      "value": "PREP"
+    },
+    {
+      "text": "代词",
+      "value": "PRON"
+    },
+    {
+      "text": "数词",
+      "value": "NUM"
+    },
+    {
+      "text": "俚语",
+      "value": "EXPR"
+    },
+    {
+      "text": "拟声词",
+      "value": "ECHO"
+    },
+    {
+      "text": "助词",
+      "value": "AUX"
+    },
+    {
+      "text": "并列连词",
+      "value": "COOR"
+    },
+    {
+      "text": "词组",
+      "value": "PP"
+    },
+    {
+      "text": "符号",
+      "value": "PUNC"
+    },
+    {
+      "text": "结构助词",
+      "value": "STRU"
+    }
+  ]
+}

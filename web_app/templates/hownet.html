@@ -1,0 +1,121 @@
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>知网演示</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="jumbotron mt-1">
+        <div class="row">
+            <div class="col-12 ">
+                <nav class="navbar navbar-expand-lg justify-content-center">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="col-6 ">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <button class="btn btn-primary" onclick="click_glossary_btn()">词汇演示</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-primary" onclick="click_sememe_btn()">义原演示</button>
+                                </li>
+                                <!--<li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>-->
+                            </ul>
+                        </div>
+                        <div class="col-6 ">
+                            <div id="glossary_search_div" class="form-inline my-2 my-lg-0 float-xs-right">
+                                <input id="word_text" class="form-control mr-sm-2 col-4" type="search"
+                                       placeholder="输入词汇"
+                                       aria-label="输入词汇">
+                                <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4"
+                                        onclick="search_glossary()">搜索
+                                </button>
+                                <input id="word_text2" class="form-control mr-sm-2 col-4" type="search"
+                                       placeholder="输入对比词汇"
+                                       aria-label="输入词汇">
+                                <button class="btn btn-outline-success my-2 my-sm-0" onclick="compare_glossary()">对比
+                                </button>
+                            </div>
+                            <div id="sememe_search_div" class="form-inline my-2 my-lg-0 float-xs-right"
+                                 style="display:none">
+                                <input id="sememe_text" class="form-control mr-sm-2 col-4" type="search"
+                                       placeholder="输入义原"
+                                       aria-label="输入义原">
+                                <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4"
+                                        onclick="search_sememe()">搜索
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+        <hr class="my-2">
+
+        <div class="row">
+            <div class="col-xs-12 ">
+                <div id="main" style="width: 1024px;height:600px;"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/echarts.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script>
+      var canSubmit=true;
+      var hownetUrl = '{% url "hownet:hownet" %}';
+      var posUrl = '{% static "json/pos.json" %}';
+      var symbolUrl = '{% static "json/symbol.json" %}';
+      var csrftoken = Cookies.get('csrftoken');
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="{% static 'js/hownet.js' %}"></script>
+</body>
+</html>
