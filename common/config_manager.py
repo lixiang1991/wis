@@ -44,7 +44,7 @@ def get_config_values(section, option):
         if utils.is_python_2():
             config.read(znxz_config_path)
         else:
-            config.read(znxz_config_path,encoding='utf8')
+            config.read(znxz_config_path, encoding='utf8')
         return config.get(section=section, option=option)
     except ConfigParser.NoSectionError:
         print("Read {} file error!".format(znxz_config_path))
